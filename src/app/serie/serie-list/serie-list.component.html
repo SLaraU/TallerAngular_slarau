@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    
+    <nav class="navbar navbar-dark" style="background-color: #00BCD4;">
+      <span class="navbar-brand">TV Series</span>
+    </nav>
+  
+    <div class="row mt-3">
+      
+      <div class="col-md-6">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Channel</th>
+              <th>Seasons</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (s of series; track s) {
+                <tr (click)="selectSerie(s)" style="cursor:pointer">
+                  <td>
+                    <dd>{{ s.id }}</dd>
+                  </td>
+                  <td>
+                    <dd>{{ s.name }}</dd>
+                  </td>
+                  <td>
+                    <dd>{{ s.channel }}</dd>
+                  </td>
+                  <td>
+                    <dd>{{ s.seasons }}</dd>
+                  </td>
+                </tr>
+                }
+          </tbody>
+        </table>
+  
+        
+        <div class="p-3 border">
+          <strong>Seasons average: {{ seasonsAverage }}</strong>
+        </div>
+      </div>
+  
+      
+        @if (selectedSerie) {
+            <div class="col-md-4">
+            <img [src]="selectedSerie.poster" class="img-fluid mb-2" alt="Serie image">
+            <h5>{{ selectedSerie.name }}</h5>
+            <p>{{ selectedSerie.description }}</p>
+            </div>
+        }
+    </div>
+  </div>
